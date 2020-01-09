@@ -6,7 +6,10 @@ import html
 import nbformat
 import codecs
 from aws.s3 import S3
-from StringIO import StringIO
+try:
+    from StringIO import StringIO ## for Python 2
+except ImportError:
+    from io import StringIO ## for Python 3
 
 MD = re.compile(r'%md\s')
 SQL = re.compile(r'%sql\s')
